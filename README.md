@@ -1,7 +1,7 @@
 # elasticsearch-head-docker
 
 #### Run the image in a Docker container
-To quickly tryout elasticsearch-head on your machine with Docker, you can simply run:
+To quickly tryout `elasticsearch-head` on your machine with Docker, you can simply run:
 
 ```
 sudo docker run \
@@ -16,3 +16,5 @@ sudo docker run \
 ```
 
 elasticsearch-head is now running on `http://localhost:8080`.
+
+Visit http://mobz.github.io/elasticsearch-head/ for more information on `elasticsearch-head`.
