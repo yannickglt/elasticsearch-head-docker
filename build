@@ -1,0 +1,19 @@
+#!/bin/sh
+set -xe
+
+DOCKER_REGISTRY='docker.io/yannickglt'
+
+rm -rf elasticsearch-head
+
+git clone git://github.com/mobz/elasticsearch-head.git
+cp Dockerfile elasticsearch-head/_site
+cp run elasticsearch-head/_site
+
+HASH=${GIT_COMMIT:-$(cd elasticsearch-head && git rev-parse HEAD)}
+docker build -t elasticsearch-head:$HASH elasticsearch-head/_site/.
+
+docker tag -f elasticsearch-head:$HASH $DOCKER_REGISTRY/elasticsearch-head:latest
+docker push $DOCKER_REGISTRY/elasticsearch-head:latest
+
+rm -rf elasticsearch-head
+

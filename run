@@ -1,0 +1,4 @@
+#!/bin/bash
+set -xe
+
+exec twistd -n web --path /var/www --port 8080
